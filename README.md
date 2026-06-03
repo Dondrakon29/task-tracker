@@ -11,6 +11,8 @@ A simple Python console project for managing tasks.
 - Show task status with `[ ]` and `[x]`
 - Interactive console menu
 - Basic input validation with try / except
+- Save tasks to JSON file
+- Load tasks from JSON file
 
 ## Technologies
 
@@ -55,3 +57,6 @@ python task_tracker.py
 - pop()
 - changing dictionary values
 - Git and GitHub basics
+- json
+- file reading
+- file writing

@@ -1,4 +1,20 @@
-tasks = []
+import json
+
+def save_tasks(tasks):
+    with open("tasks.json", "w") as file:
+        json.dump(tasks, file, indent=4)
+
+def load_tasks():
+    try:
+        with open("tasks.json", "r") as file:
+            tasks = json.load(file)
+
+        return tasks
+
+    except FileNotFoundError:
+        return []            
+
+tasks = load_tasks()
 
 def show_menu():
     print("1 - Add task")
@@ -13,6 +29,8 @@ def add_task(tasks):
     task = {"title": title, "done": False}
 
     tasks.append(task)
+
+    save_tasks(tasks)
 
     print("Task added")
 
@@ -49,6 +67,8 @@ def mark_task_done(tasks):
 
         tasks[index]["done"] = True
 
+        save_tasks(tasks)
+
         print(f'Task marked as done: {tasks[index]["title"]}')
 
     except ValueError:
@@ -71,6 +91,8 @@ def delete_task(tasks):
             return
 
         deleted_task = tasks.pop(index)
+
+        save_tasks(tasks)
 
         print(f'Task deleted: {deleted_task["title"]}')
 
@@ -106,4 +128,3 @@ def run_app():
 
 if __name__ == "__main__":
     run_app()
-
