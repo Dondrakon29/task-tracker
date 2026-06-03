@@ -13,6 +13,7 @@ A simple Python console project for managing tasks.
 - Basic input validation with try / except
 - Save tasks to JSON file
 - Load tasks from JSON file
+- Clear all tasks
 
 ## Technologies
 
@@ -60,3 +61,4 @@ python task_tracker.py
 - json
 - file reading
 - file writing
+- clear()

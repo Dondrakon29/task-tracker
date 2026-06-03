@@ -21,6 +21,7 @@ def show_menu():
     print("2 - Show tasks")
     print("3 - Mark task as done")
     print("4 - Delete task")
+    print("5 - Clear all tasks")
     print("0 - Exit")
 
 def add_task(tasks):
@@ -97,7 +98,18 @@ def delete_task(tasks):
         print(f'Task deleted: {deleted_task["title"]}')
 
     except ValueError:
-        print("Please enter a number")                                                           
+        print("Please enter a number")
+
+def clear_tasks(tasks):
+    if tasks == []:
+        print("No tasks")
+        return
+
+    tasks.clear()
+
+    save_tasks(tasks)
+
+    print("All tasks cleared")                                                                    
 
 def run_app():
     while True:
@@ -119,7 +131,10 @@ def run_app():
             mark_task_done(tasks)
 
         elif choice == "4":
-            delete_task(tasks)            
+            delete_task(tasks)
+
+        elif choice == "5":
+            clear_tasks(tasks)                
 
         else:
             print("Wrong choice")
